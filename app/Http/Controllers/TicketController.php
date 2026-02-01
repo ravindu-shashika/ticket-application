@@ -70,7 +70,9 @@ class TicketController extends Controller
 
             // Send acknowledgment email
             try {
-                Mail::to($customer->email)->send(new TicketMail($ticket));
+                // Mail::to($customer->email)->send(new TicketMail($ticket));
+                // use queue to send email asynchronously
+                    Mail::to($customer->email)->queue(new TicketMail($ticket));
             } catch (\Exception $e) {
                 
                 Log::error('Failed to send ticket creation email: ' . $e->getMessage());

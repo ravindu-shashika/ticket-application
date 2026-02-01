@@ -15,7 +15,7 @@ A Laravel-based ticketing system with real-time notifications using Laravel Reve
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ticket-application.git
+git clone https://github.com/ravindu-shashika/ticket-application.git
 cd ticket-application
 ```
 
@@ -65,17 +65,19 @@ VITE_REVERB_SCHEME="${REVERB_SCHEME}"
 php artisan key:generate
 ```
 
-### 6. Run Migrations
+### 6. Run Migrations and Seeders
 
 ```bash
 php artisan migrate
 ```
 
+```bash
+php artisan db:seed
+```
+
 ### 7. Build Frontend Assets
 
 ```bash
-npm run build
-# or for development:
 npm run dev
 ```
 
@@ -91,35 +93,11 @@ php artisan reverb:start
 php artisan serve
 ```
 
-### 10. (Optional) Start Queue Worker
+## 10. Start Queue Worker
 
-If you use queues for broadcasting or mail:
+ use queues for broadcasting and mail:
 
 ```bash
 php artisan queue:work
 ```
 
----
-
-## Usage
-
-- Visit [http://localhost:8000](http://localhost:8000) in your browser.
-- Agents can log in and manage tickets.
-- Customers can create and check ticket status.
-- Agents receive real-time notifications for new tickets.
-
----
-
-## Troubleshooting
-
-- If broadcasting does not work, ensure:
-  - `BROADCAST_DRIVER=reverb` is set in `.env`
-  - Reverb server is running
-  - Queue worker is running (if using queues)
-  - Config cache is cleared: `php artisan config:clear`
-
----
-
-## License
-
-MIT

@@ -113,7 +113,8 @@ class AgentController extends Controller
 
             // Send email notification to customer
             try {
-                Mail::to($ticket->customer->email)->send(new TicketReplyMail($ticket, $reply));
+                // Mail::to($ticket->customer->email)->send(new TicketReplyMail($ticket, $reply));
+                Mail::to($ticket->customer->email)->queue(new TicketMail($ticket));
             } catch (\Exception $e) {
                 Log::error('Failed to send reply email: ' . $e->getMessage());
             }
