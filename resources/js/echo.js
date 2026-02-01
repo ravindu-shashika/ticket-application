@@ -1,7 +1,7 @@
 import Echo from 'laravel-echo';
 
-// import Pusher from 'pusher-js';
-// window.Pusher = Pusher;
+import Pusher from 'pusher-js';
+window.Pusher = Pusher;
 
 window.Echo = new Echo({
     broadcaster: 'reverb',
@@ -12,8 +12,3 @@ window.Echo = new Echo({
     forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'https') === 'https',
     enabledTransports: ['ws', 'wss'],
 });
-
-Echo.channel('tickets')
-    .listen('.ticket.created', (e) => {
-        alert(`🆕 New ticket created: ${e.ticket.subject}`);
-    });
