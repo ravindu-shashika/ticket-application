@@ -130,7 +130,7 @@
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background: #10b981; /* Success Green */
+        background: #10b981; 
         color: white;
         padding: 12px 24px;
         border-radius: 50px;
@@ -149,14 +149,14 @@
         opacity: 1;
     }
 
-    /* Add a checkmark icon before the text */
+    
     .toast-notification::before {
-        content: "\f00c"; /* FontAwesome checkmark */
+        content: "\f00c"; 
         font-family: "Font Awesome 6 Free";
         margin-right: 10px;
         font-weight: 900;
     }
-    /* Custom scrollbar for chat container */
+
     #replies-container::-webkit-scrollbar { width: 4px; }
     #replies-container::-webkit-scrollbar-track { background: transparent; }
     #replies-container::-webkit-scrollbar-thumb { background: #dee2e6; border-radius: 10px; }
@@ -196,7 +196,7 @@
             const data = await response.json();
 
             if (response.ok && data.success) {
-                // 1. Add Message to UI
+              
                 const replyDiv = document.createElement('div');
                 replyDiv.className = 'd-flex mb-4 justify-content-end';
                 replyDiv.innerHTML = `
@@ -211,10 +211,10 @@
                 repliesContainer.appendChild(replyDiv);
                 repliesContainer.scrollTo({ top: repliesContainer.scrollHeight, behavior: 'smooth' });
 
-                // 2. Reset Form
+              
                 document.getElementById('reply-message').value = '';
 
-                // 3. SHOW SUCCESS MESSAGE
+                
                 showStatusToast('Reply sent successfully!');
 
             } else {
@@ -231,7 +231,7 @@
 
     // Function to create and show the success toast
     function showStatusToast(message) {
-        // Create toast element if it doesn't exist
+       
         let toast = document.getElementById('status-toast');
         if (!toast) {
             toast = document.createElement('div');
@@ -243,7 +243,7 @@
         toast.textContent = message;
         toast.classList.add('show');
 
-        // Hide after 3 seconds
+        
         setTimeout(() => {
             toast.classList.remove('show');
         }, 3000);

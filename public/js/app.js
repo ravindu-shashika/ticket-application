@@ -1,7 +1,3 @@
-/**
- * Online Support System - Main JavaScript
- * Handles dynamic interactions and AJAX requests
- */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Auto-hide alerts after 5 seconds
@@ -21,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-/**
- * Helper function to show loading state on buttons
- */
+
 function setButtonLoading(button, isLoading) {
     const btnText = button.querySelector('.btn-text');
     const btnLoader = button.querySelector('.btn-loader');
@@ -39,17 +33,13 @@ function setButtonLoading(button, isLoading) {
     }
 }
 
-/**
- * Helper function to clear form errors
- */
+
 function clearFormErrors(form) {
     form.querySelectorAll('.error-message').forEach(el => el.textContent = '');
     form.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
 }
 
-/**
- * Helper function to display form errors
- */
+
 function displayFormErrors(errors) {
     Object.keys(errors).forEach(key => {
         const errorEl = document.getElementById(`error-${key}`);
@@ -63,9 +53,7 @@ function displayFormErrors(errors) {
     });
 }
 
-/**
- * Show notification toast
- */
+
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -82,35 +70,8 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-/**
- * Format date to readable string
- */
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    const options = { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-    return date.toLocaleDateString('en-US', options);
-}
 
-/**
- * Debounce function for search inputs
- */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+
 
 
 
@@ -121,6 +82,5 @@ window.supportSystem = {
     clearFormErrors,
     displayFormErrors,
     showNotification,
-    formatDate,
     debounce,
 };
